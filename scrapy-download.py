@@ -1,19 +1,26 @@
 # Created By  : Anderval
 # Created Date: 20/11/2021
 
+from time import sleep
 import requests  # Importa a Biblioteca requests
 from bs4 import BeautifulSoup  # Importa a Biblioteca BeautifulSoup
 
-print("Starting scrap...")
-for x in range(9):  # loop que irá pecorrer o número de temporadas
-    for i in range(12):  # loop que irá pecorrer o número de episódios
+print("Começando o scrap...")
+for x in range(1, 9):  # loop que irá pecorrer o número de temporadas, começando da 1
+    for y in range(1, 12):  # loop que irá pecorrer o número de episódios, começando do 1
 
         # Url utilizada para realizar o scrapy, a url recebe o numero da temporada e do episódio pelo loop
         url = "http://www.ayoitsdistrict78.com/album/abdc-season-{}-episode-{}/".format(
-            x, i)
-        req = requests.get(url)  # Envia uma resiquição get para a página
+            x, y)
+
+        res = requests.get(url)  # Envia uma resiquição get para a página
         # recebe o conteúdo da página verificando os marcadores html
-        soup = BeautifulSoup(req.content, 'html.parser')
+
+        # continua o código apenas se a página existir
+        if res.status_code != 200:
+            break
+
+        soup = BeautifulSoup(res.content, 'html.parser')
 
         # loop que pecorre todos elementos li, os elementos li é onde estão nossos arquivos mp3
         for link in soup.find_all("li"):
