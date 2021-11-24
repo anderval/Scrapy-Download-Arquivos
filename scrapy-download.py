@@ -24,5 +24,6 @@ for x in range(9): #loop que irá pecorrer o número de temporadas
             doc = requests.get(linkMp3) #Envia uma resiquição get para a página
             with open(nomeArquivo, 'wb') as f:#Abrindo o arquivo passando nome, e habilitando a escrita do arquivo binário
                 f.write(doc.content) #Salvando o conteudo da requisição no arquivo
+                f.close() #Fecha arquivo após a conclusão
 
     
