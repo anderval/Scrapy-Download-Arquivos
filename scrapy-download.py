@@ -3,7 +3,6 @@
 
 import requests #Importa a Biblioteca requests
 from bs4 import BeautifulSoup #Importa a Biblioteca BeautifulSoup
-from requests import get #Da biblioteca requests importa o método get
 
 for x in range(9): #loop que irá pecorrer o número de temporadas
   for i in range(12): #loop que irá pecorrer o número de episódios
