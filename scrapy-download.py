@@ -15,7 +15,7 @@ for x in range(9): #loop que irá pecorrer o número de temporadas
 
     for link in soup.find_all("li"): #loop que pecorre todos elementos li, os elementos li é onde estão nossos arquivos mp3
         linkMp3 = format(link.get("data-media")) #Armazenando o endereço que está na tag data-media
-        nomeArquivo = str(linkMp3.split("/")[-1:]) #Pegando o nome do arquivo à partir do da ultima parta da url
+        nomeArquivo = nomeArquivo = linkMp3.split("/", -1)[-1] #Pegando o nome do arquivo à partir do da ultima parta da url
 
         if linkMp3.endswith(".mp3"): #Condicional que verifica se o endereço armazenado contem a extensão .mp3 
             print("Realizando o download do arquivo: "+ nomeArquivo)
