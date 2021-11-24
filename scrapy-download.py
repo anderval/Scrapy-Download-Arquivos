@@ -33,4 +33,3 @@ for x in range(9):  # loop que irá pecorrer o número de temporadas
                 with open("./downloads/%s" % (nomeArquivo), 'wb') as f:
                     # Salvando o conteudo da requisição no arquivo
                     f.write(doc.content)
-                    f.close()  # Fecha arquivo após a conclusão
